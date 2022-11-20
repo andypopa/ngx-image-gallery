@@ -21,6 +21,7 @@ const DEFAULT_CONF = {
     showImageTitle: true,
     showThumbnails: true,
     closeOnEsc: true,
+    closeOnBlur: true,
     reactToKeyboard: true,
     reactToMouseWheel: true,
     reactToRightClick: false,
@@ -224,6 +225,25 @@ let NgxImageGalleryComponent = class NgxImageGalleryComponent {
             setTimeout(() => this.scrollThumbnails(), 300);
         }
     }
+    // click event used for implementing closeOnBlur
+    onClick(event) {
+        if (!this.conf.closeOnBlur || event.target.tagName === 'IMG') {
+            return;
+        }
+        const ignoreClasses = [
+            'control',
+            'feedback',
+            'thumbnail',
+            'thumbnails-scroller',
+            'info-container'
+        ];
+        for (const ignoreClass of ignoreClasses) {
+            if (event.target.classList.contains(ignoreClass)) {
+                return;
+            }
+        }
+        this.close();
+    }
     /***************************************************/
     // open gallery
     open(index = 0) {
@@ -329,6 +349,9 @@ __decorate([
 __decorate([
     HostListener('window:resize', ['$event'])
 ], NgxImageGalleryComponent.prototype, "onWindowResize", null);
+__decorate([
+    HostListener('click', ['$event'])
+], NgxImageGalleryComponent.prototype, "onClick", null);
 NgxImageGalleryComponent = __decorate([
     Component({
         selector: 'ngx-image-gallery',
@@ -443,4 +466,4 @@ NgxImageGalleryModule = __decorate([
  */
 
 export { ClickOutsideDirective, MouseWheelDirective, NgxImageGalleryComponent, NgxImageGalleryModule };
-//# sourceMappingURL=ngx-image-gallery.js.map
+//# sourceMappingURL=megakill-ngx-image-gallery.js.map

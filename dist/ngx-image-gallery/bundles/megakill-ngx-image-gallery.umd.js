@@ -1,8 +1,227 @@
 (function (global, factory) {
-    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('tslib'), require('@angular/core'), require('@angular/common'), require('lodash'), require('@angular/platform-browser')) :
-    typeof define === 'function' && define.amd ? define('ngx-image-gallery', ['exports', 'tslib', '@angular/core', '@angular/common', 'lodash', '@angular/platform-browser'], factory) :
-    (global = global || self, factory(global['ngx-image-gallery'] = {}, global.tslib, global.ng.core, global.ng.common, global.lodash, global.ng.platformBrowser));
-}(this, (function (exports, tslib, core, common, lodash, platformBrowser) { 'use strict';
+    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('@angular/common'), require('lodash'), require('@angular/platform-browser')) :
+    typeof define === 'function' && define.amd ? define('@megakill/ngx-image-gallery', ['exports', '@angular/core', '@angular/common', 'lodash', '@angular/platform-browser'], factory) :
+    (global = global || self, factory((global.megakill = global.megakill || {}, global.megakill['ngx-image-gallery'] = {}), global.ng.core, global.ng.common, global.lodash, global.ng.platformBrowser));
+}(this, (function (exports, core, common, lodash, platformBrowser) { 'use strict';
+
+    /*! *****************************************************************************
+    Copyright (c) Microsoft Corporation.
+
+    Permission to use, copy, modify, and/or distribute this software for any
+    purpose with or without fee is hereby granted.
+
+    THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH
+    REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY
+    AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT,
+    INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM
+    LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR
+    OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
+    PERFORMANCE OF THIS SOFTWARE.
+    ***************************************************************************** */
+    /* global Reflect, Promise */
+
+    var extendStatics = function(d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+
+    function __extends(d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    }
+
+    var __assign = function() {
+        __assign = Object.assign || function __assign(t) {
+            for (var s, i = 1, n = arguments.length; i < n; i++) {
+                s = arguments[i];
+                for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p)) t[p] = s[p];
+            }
+            return t;
+        };
+        return __assign.apply(this, arguments);
+    };
+
+    function __rest(s, e) {
+        var t = {};
+        for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0)
+            t[p] = s[p];
+        if (s != null && typeof Object.getOwnPropertySymbols === "function")
+            for (var i = 0, p = Object.getOwnPropertySymbols(s); i < p.length; i++) {
+                if (e.indexOf(p[i]) < 0 && Object.prototype.propertyIsEnumerable.call(s, p[i]))
+                    t[p[i]] = s[p[i]];
+            }
+        return t;
+    }
+
+    function __decorate(decorators, target, key, desc) {
+        var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+        if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+        else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+        return c > 3 && r && Object.defineProperty(target, key, r), r;
+    }
+
+    function __param(paramIndex, decorator) {
+        return function (target, key) { decorator(target, key, paramIndex); }
+    }
+
+    function __metadata(metadataKey, metadataValue) {
+        if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(metadataKey, metadataValue);
+    }
+
+    function __awaiter(thisArg, _arguments, P, generator) {
+        function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+        return new (P || (P = Promise))(function (resolve, reject) {
+            function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+            function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+            function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+            step((generator = generator.apply(thisArg, _arguments || [])).next());
+        });
+    }
+
+    function __generator(thisArg, body) {
+        var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
+        return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
+        function verb(n) { return function (v) { return step([n, v]); }; }
+        function step(op) {
+            if (f) throw new TypeError("Generator is already executing.");
+            while (_) try {
+                if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
+                if (y = 0, t) op = [op[0] & 2, t.value];
+                switch (op[0]) {
+                    case 0: case 1: t = op; break;
+                    case 4: _.label++; return { value: op[1], done: false };
+                    case 5: _.label++; y = op[1]; op = [0]; continue;
+                    case 7: op = _.ops.pop(); _.trys.pop(); continue;
+                    default:
+                        if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
+                        if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
+                        if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
+                        if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
+                        if (t[2]) _.ops.pop();
+                        _.trys.pop(); continue;
+                }
+                op = body.call(thisArg, _);
+            } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
+            if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
+        }
+    }
+
+    function __createBinding(o, m, k, k2) {
+        if (k2 === undefined) k2 = k;
+        o[k2] = m[k];
+    }
+
+    function __exportStar(m, exports) {
+        for (var p in m) if (p !== "default" && !exports.hasOwnProperty(p)) exports[p] = m[p];
+    }
+
+    function __values(o) {
+        var s = typeof Symbol === "function" && Symbol.iterator, m = s && o[s], i = 0;
+        if (m) return m.call(o);
+        if (o && typeof o.length === "number") return {
+            next: function () {
+                if (o && i >= o.length) o = void 0;
+                return { value: o && o[i++], done: !o };
+            }
+        };
+        throw new TypeError(s ? "Object is not iterable." : "Symbol.iterator is not defined.");
+    }
+
+    function __read(o, n) {
+        var m = typeof Symbol === "function" && o[Symbol.iterator];
+        if (!m) return o;
+        var i = m.call(o), r, ar = [], e;
+        try {
+            while ((n === void 0 || n-- > 0) && !(r = i.next()).done) ar.push(r.value);
+        }
+        catch (error) { e = { error: error }; }
+        finally {
+            try {
+                if (r && !r.done && (m = i["return"])) m.call(i);
+            }
+            finally { if (e) throw e.error; }
+        }
+        return ar;
+    }
+
+    function __spread() {
+        for (var ar = [], i = 0; i < arguments.length; i++)
+            ar = ar.concat(__read(arguments[i]));
+        return ar;
+    }
+
+    function __spreadArrays() {
+        for (var s = 0, i = 0, il = arguments.length; i < il; i++) s += arguments[i].length;
+        for (var r = Array(s), k = 0, i = 0; i < il; i++)
+            for (var a = arguments[i], j = 0, jl = a.length; j < jl; j++, k++)
+                r[k] = a[j];
+        return r;
+    };
+
+    function __await(v) {
+        return this instanceof __await ? (this.v = v, this) : new __await(v);
+    }
+
+    function __asyncGenerator(thisArg, _arguments, generator) {
+        if (!Symbol.asyncIterator) throw new TypeError("Symbol.asyncIterator is not defined.");
+        var g = generator.apply(thisArg, _arguments || []), i, q = [];
+        return i = {}, verb("next"), verb("throw"), verb("return"), i[Symbol.asyncIterator] = function () { return this; }, i;
+        function verb(n) { if (g[n]) i[n] = function (v) { return new Promise(function (a, b) { q.push([n, v, a, b]) > 1 || resume(n, v); }); }; }
+        function resume(n, v) { try { step(g[n](v)); } catch (e) { settle(q[0][3], e); } }
+        function step(r) { r.value instanceof __await ? Promise.resolve(r.value.v).then(fulfill, reject) : settle(q[0][2], r); }
+        function fulfill(value) { resume("next", value); }
+        function reject(value) { resume("throw", value); }
+        function settle(f, v) { if (f(v), q.shift(), q.length) resume(q[0][0], q[0][1]); }
+    }
+
+    function __asyncDelegator(o) {
+        var i, p;
+        return i = {}, verb("next"), verb("throw", function (e) { throw e; }), verb("return"), i[Symbol.iterator] = function () { return this; }, i;
+        function verb(n, f) { i[n] = o[n] ? function (v) { return (p = !p) ? { value: __await(o[n](v)), done: n === "return" } : f ? f(v) : v; } : f; }
+    }
+
+    function __asyncValues(o) {
+        if (!Symbol.asyncIterator) throw new TypeError("Symbol.asyncIterator is not defined.");
+        var m = o[Symbol.asyncIterator], i;
+        return m ? m.call(o) : (o = typeof __values === "function" ? __values(o) : o[Symbol.iterator](), i = {}, verb("next"), verb("throw"), verb("return"), i[Symbol.asyncIterator] = function () { return this; }, i);
+        function verb(n) { i[n] = o[n] && function (v) { return new Promise(function (resolve, reject) { v = o[n](v), settle(resolve, reject, v.done, v.value); }); }; }
+        function settle(resolve, reject, d, v) { Promise.resolve(v).then(function(v) { resolve({ value: v, done: d }); }, reject); }
+    }
+
+    function __makeTemplateObject(cooked, raw) {
+        if (Object.defineProperty) { Object.defineProperty(cooked, "raw", { value: raw }); } else { cooked.raw = raw; }
+        return cooked;
+    };
+
+    function __importStar(mod) {
+        if (mod && mod.__esModule) return mod;
+        var result = {};
+        if (mod != null) for (var k in mod) if (Object.hasOwnProperty.call(mod, k)) result[k] = mod[k];
+        result.default = mod;
+        return result;
+    }
+
+    function __importDefault(mod) {
+        return (mod && mod.__esModule) ? mod : { default: mod };
+    }
+
+    function __classPrivateFieldGet(receiver, privateMap) {
+        if (!privateMap.has(receiver)) {
+            throw new TypeError("attempted to get private field on non-instance");
+        }
+        return privateMap.get(receiver);
+    }
+
+    function __classPrivateFieldSet(receiver, privateMap, value) {
+        if (!privateMap.has(receiver)) {
+            throw new TypeError("attempted to set private field on non-instance");
+        }
+        privateMap.set(receiver, value);
+        return value;
+    }
 
     // key codes to react
     var KEY_CODES = {
@@ -21,6 +240,7 @@
         showImageTitle: true,
         showThumbnails: true,
         closeOnEsc: true,
+        closeOnBlur: true,
         reactToKeyboard: true,
         reactToMouseWheel: true,
         reactToRightClick: false,
@@ -244,6 +464,36 @@
                 setTimeout(function () { return _this.scrollThumbnails(); }, 300);
             }
         };
+        // click event used for implementing closeOnBlur
+        NgxImageGalleryComponent.prototype.onClick = function (event) {
+            var e_1, _a;
+            if (!this.conf.closeOnBlur || event.target.tagName === 'IMG') {
+                return;
+            }
+            var ignoreClasses = [
+                'control',
+                'feedback',
+                'thumbnail',
+                'thumbnails-scroller',
+                'info-container'
+            ];
+            try {
+                for (var ignoreClasses_1 = __values(ignoreClasses), ignoreClasses_1_1 = ignoreClasses_1.next(); !ignoreClasses_1_1.done; ignoreClasses_1_1 = ignoreClasses_1.next()) {
+                    var ignoreClass = ignoreClasses_1_1.value;
+                    if (event.target.classList.contains(ignoreClass)) {
+                        return;
+                    }
+                }
+            }
+            catch (e_1_1) { e_1 = { error: e_1_1 }; }
+            finally {
+                try {
+                    if (ignoreClasses_1_1 && !ignoreClasses_1_1.done && (_a = ignoreClasses_1.return)) _a.call(ignoreClasses_1);
+                }
+                finally { if (e_1) throw e_1.error; }
+            }
+            this.close();
+        };
         /***************************************************/
         // open gallery
         NgxImageGalleryComponent.prototype.open = function (index) {
@@ -313,43 +563,46 @@
             { type: core.Renderer2 },
             { type: core.ChangeDetectorRef }
         ]; };
-        tslib.__decorate([
+        __decorate([
             core.HostBinding('class.active')
         ], NgxImageGalleryComponent.prototype, "opened", void 0);
-        tslib.__decorate([
+        __decorate([
             core.Input()
         ], NgxImageGalleryComponent.prototype, "conf", void 0);
-        tslib.__decorate([
+        __decorate([
             core.Input()
         ], NgxImageGalleryComponent.prototype, "images", void 0);
-        tslib.__decorate([
+        __decorate([
             core.Output()
         ], NgxImageGalleryComponent.prototype, "onOpen", void 0);
-        tslib.__decorate([
+        __decorate([
             core.Output()
         ], NgxImageGalleryComponent.prototype, "onClose", void 0);
-        tslib.__decorate([
+        __decorate([
             core.Output()
         ], NgxImageGalleryComponent.prototype, "onDelete", void 0);
-        tslib.__decorate([
+        __decorate([
             core.Output()
         ], NgxImageGalleryComponent.prototype, "onImageChange", void 0);
-        tslib.__decorate([
+        __decorate([
             core.Output()
         ], NgxImageGalleryComponent.prototype, "onImageClicked", void 0);
-        tslib.__decorate([
+        __decorate([
             core.Output()
         ], NgxImageGalleryComponent.prototype, "onError", void 0);
-        tslib.__decorate([
+        __decorate([
             core.ViewChild('thumbnails')
         ], NgxImageGalleryComponent.prototype, "thumbnailsElem", void 0);
-        tslib.__decorate([
+        __decorate([
             core.HostListener('window:keydown', ['$event'])
         ], NgxImageGalleryComponent.prototype, "onKeyboardInput", null);
-        tslib.__decorate([
+        __decorate([
             core.HostListener('window:resize', ['$event'])
         ], NgxImageGalleryComponent.prototype, "onWindowResize", null);
-        NgxImageGalleryComponent = tslib.__decorate([
+        __decorate([
+            core.HostListener('click', ['$event'])
+        ], NgxImageGalleryComponent.prototype, "onClick", null);
+        NgxImageGalleryComponent = __decorate([
             core.Component({
                 selector: 'ngx-image-gallery',
                 template: "<!-- images and image information container -->\n<div class=\"galleria\" mouseWheel (mouseWheelDown)=\"mouseWheelDown()\" (mouseWheelUp)=\"mouseWheelUp()\"\n     (contextmenu)=\"rightClickOnImage($event)\">\n    <!-- images -->\n    <div class=\"images-container\" (swiperight)=\"prev()\" (swipeleft)=\"next()\">\n        <!-- images array -->\n        <div class=\"image\" *ngFor=\"let image of images; let i = index;\"\n             [class.active]=\"!loading && (i == activeImageIndex)\"\n             [ngStyle]=\"{top: conf.imageOffset, bottom: conf.imageOffset}\">\n            <img *ngIf=\"i == activeImageIndex\" [src]=\"sanitizer.bypassSecurityTrustUrl(image.url)\" [alt]=\"image.altText || ''\"\n                 [style.cursor]=\"conf.imagePointer?  'pointer':'default'\"\n                 [style.borderRadius]=\"conf.imageBorderRadius\" (click)=\"clickOnImage(activeImageIndex)\"/>\n        </div>\n\n        <!-- loading animation -->\n        <div class=\"loading-animation\" *ngIf=\"(images.length == 0) || loading\">\n            <svg  version=\"1.1\" id=\"L3\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\" viewBox=\"0 0 100 100\" enable-background=\"new 0 0 0 0\" xml:space=\"preserve\">\n        <circle fill=\"none\" stroke=\"#fff\" stroke-width=\"4\" cx=\"50\" cy=\"50\" r=\"44\" style=\"opacity:0.5;\"/>\n        <circle fill=\"#4caf50\" stroke=\"#eee\" stroke-width=\"3\" cx=\"8\" cy=\"54\" r=\"6\">\n          <animateTransform\n          attributeName=\"transform\"\n          dur=\"2s\"\n          type=\"rotate\"\n          from=\"0 50 48\"\n          to=\"360 50 52\"\n          repeatCount=\"indefinite\" />\n\n          <animate \n          attributeName=\"fill\" \n          begin=\"1s\" \n          dur=\"16s\" \n          values=\"#4caf50; #cddc39; #ff9800; #f44336; #e91e63; #ff5722; #ffeb3b; #4caf50\"\n          repeatCount=\"indefinite\" /> \n        </circle>\n      </svg>\n        </div>\n    </div>\n\n    <!-- info and thumbnails -->\n    <div class=\"info-container\">\n        <div class=\"title\"\n             *ngIf=\"conf.showImageTitle && !loading && activeImage && activeImage.title\"\n             [style.paddingBottom]=\"conf.showThumbnails ? '0px' : '30px'\"\n             [class.dark]=\"conf.inline\"\n        >{{ activeImage.title }}\n        </div>\n\n        <div #thumbnails class=\"thumbnails\" *ngIf=\"conf.showThumbnails\">\n            <div class=\"thumbnails-scroller\" [style.marginLeft]=\"thumbnailsScrollerLeftMargin\">\n                <div class=\"thumbnail\"\n                     *ngFor=\"let image of images; let i = index;\"\n                     [class.active]=\"i == activeImageIndex\"\n\n                     [style.backgroundImage]=\"sanitizer.bypassSecurityTrustStyle('url(' + (image.thumbnailUrl || image.url) + ')')\"\n\n                     [style.margin]=\"thumbnailMargin\"\n                     [style.width]=\"conf.thumbnailSize + 'px'\"\n                     [style.height]=\"conf.thumbnailSize + 'px'\"\n                     (click)=\"setActiveImage(i)\">\n                    <div class=\"feedback\"></div>\n                </div>\n            </div>\n        </div>\n    </div>\n</div>\n\n\n<!-- gallery controls -->\n<div class=\"control arrow left\" *ngIf=\"conf.showArrows && (images.length > 1) && !loading\" [class.dark]=\"conf.inline\"\n     [class.disabled]=\"onFirstImage\" (click)=\"prev()\"></div>\n<div class=\"control arrow right\" *ngIf=\"conf.showArrows && (images.length > 1) && !loading\" [class.dark]=\"conf.inline\"\n     [class.disabled]=\"onLastImage\" (click)=\"next()\"></div>\n\n<div class=\"control right-top\">\n    <a class=\"ext-url\" [class.dark]=\"conf.inline\"\n       *ngIf=\"conf.showExtUrlControl && activeImage && activeImage.extUrl && !loading\" [href]=\"activeImage.extUrl\"\n       [target]=\"activeImage.extUrlTarget || '_blank'\">\n        <div class=\"feedback\"></div>\n    </a>\n    <div class=\"close\" [class.dark]=\"conf.inline\" *ngIf=\"conf.showCloseControl\" (click)=\"close()\">\n        <div class=\"feedback\"></div>\n    </div>\n</div>\n\n<div class=\"control left-top\">\n    <div class=\"delete-img\" [class.dark]=\"conf.inline\" *ngIf=\"conf.showDeleteControl && !loading\"\n         (click)=\"deleteImage(activeImageIndex)\">\n        <div class=\"feedback\"></div>\n    </div>\n</div>\n",
@@ -373,13 +626,13 @@
         ClickOutsideDirective.ctorParameters = function () { return [
             { type: core.ElementRef }
         ]; };
-        tslib.__decorate([
+        __decorate([
             core.Output()
         ], ClickOutsideDirective.prototype, "clickOutside", void 0);
-        tslib.__decorate([
+        __decorate([
             core.HostListener('document:click', ['$event', '$event.target'])
         ], ClickOutsideDirective.prototype, "onClick", null);
-        ClickOutsideDirective = tslib.__decorate([
+        ClickOutsideDirective = __decorate([
             core.Directive({
                 selector: '[clickOutside]'
             })
@@ -417,22 +670,22 @@
                 event.preventDefault();
             }
         };
-        tslib.__decorate([
+        __decorate([
             core.Output()
         ], MouseWheelDirective.prototype, "mouseWheelUp", void 0);
-        tslib.__decorate([
+        __decorate([
             core.Output()
         ], MouseWheelDirective.prototype, "mouseWheelDown", void 0);
-        tslib.__decorate([
+        __decorate([
             core.HostListener('mousewheel', ['$event'])
         ], MouseWheelDirective.prototype, "onMouseWheelChrome", null);
-        tslib.__decorate([
+        __decorate([
             core.HostListener('DOMMouseScroll', ['$event'])
         ], MouseWheelDirective.prototype, "onMouseWheelFirefox", null);
-        tslib.__decorate([
+        __decorate([
             core.HostListener('onmousewheel', ['$event'])
         ], MouseWheelDirective.prototype, "onMouseWheelIE", null);
-        MouseWheelDirective = tslib.__decorate([
+        MouseWheelDirective = __decorate([
             core.Directive({ selector: '[mouseWheel]' })
         ], MouseWheelDirective);
         return MouseWheelDirective;
@@ -441,7 +694,7 @@
     var NgxImageGalleryModule = /** @class */ (function () {
         function NgxImageGalleryModule() {
         }
-        NgxImageGalleryModule = tslib.__decorate([
+        NgxImageGalleryModule = __decorate([
             core.NgModule({
                 imports: [
                     common.CommonModule
@@ -469,4 +722,4 @@
     Object.defineProperty(exports, '__esModule', { value: true });
 
 })));
-//# sourceMappingURL=ngx-image-gallery.umd.js.map
+//# sourceMappingURL=megakill-ngx-image-gallery.umd.js.map

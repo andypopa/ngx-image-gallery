@@ -1,4 +1,4 @@
-import { __decorate } from 'tslib';
+import { __values, __decorate } from 'tslib';
 import { EventEmitter, ElementRef, Renderer2, ChangeDetectorRef, HostBinding, Input, Output, ViewChild, HostListener, Component, Directive, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { debounce, assign } from 'lodash';
@@ -21,6 +21,7 @@ var DEFAULT_CONF = {
     showImageTitle: true,
     showThumbnails: true,
     closeOnEsc: true,
+    closeOnBlur: true,
     reactToKeyboard: true,
     reactToMouseWheel: true,
     reactToRightClick: false,
@@ -244,6 +245,36 @@ var NgxImageGalleryComponent = /** @class */ (function () {
             setTimeout(function () { return _this.scrollThumbnails(); }, 300);
         }
     };
+    // click event used for implementing closeOnBlur
+    NgxImageGalleryComponent.prototype.onClick = function (event) {
+        var e_1, _a;
+        if (!this.conf.closeOnBlur || event.target.tagName === 'IMG') {
+            return;
+        }
+        var ignoreClasses = [
+            'control',
+            'feedback',
+            'thumbnail',
+            'thumbnails-scroller',
+            'info-container'
+        ];
+        try {
+            for (var ignoreClasses_1 = __values(ignoreClasses), ignoreClasses_1_1 = ignoreClasses_1.next(); !ignoreClasses_1_1.done; ignoreClasses_1_1 = ignoreClasses_1.next()) {
+                var ignoreClass = ignoreClasses_1_1.value;
+                if (event.target.classList.contains(ignoreClass)) {
+                    return;
+                }
+            }
+        }
+        catch (e_1_1) { e_1 = { error: e_1_1 }; }
+        finally {
+            try {
+                if (ignoreClasses_1_1 && !ignoreClasses_1_1.done && (_a = ignoreClasses_1.return)) _a.call(ignoreClasses_1);
+            }
+            finally { if (e_1) throw e_1.error; }
+        }
+        this.close();
+    };
     /***************************************************/
     // open gallery
     NgxImageGalleryComponent.prototype.open = function (index) {
@@ -349,6 +380,9 @@ var NgxImageGalleryComponent = /** @class */ (function () {
     __decorate([
         HostListener('window:resize', ['$event'])
     ], NgxImageGalleryComponent.prototype, "onWindowResize", null);
+    __decorate([
+        HostListener('click', ['$event'])
+    ], NgxImageGalleryComponent.prototype, "onClick", null);
     NgxImageGalleryComponent = __decorate([
         Component({
             selector: 'ngx-image-gallery',
@@ -470,4 +504,4 @@ var NgxImageGalleryModule = /** @class */ (function () {
  */
 
 export { ClickOutsideDirective, MouseWheelDirective, NgxImageGalleryComponent, NgxImageGalleryModule };
-//# sourceMappingURL=ngx-image-gallery.js.map
+//# sourceMappingURL=megakill-ngx-image-gallery.js.map

@@ -43,6 +43,7 @@ export declare class NgxImageGalleryComponent implements OnInit, OnChanges {
     ngOnChanges(changes: SimpleChanges): void;
     onKeyboardInput(event: KeyboardEvent): void;
     onWindowResize(event: Event): void;
+    onClick(event: Event): void;
     /***************************************************/
     open(index?: number): void;
     close(): void;
