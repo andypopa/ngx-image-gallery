@@ -37,6 +37,7 @@ const DEFAULT_CONF: GALLERY_CONF = {
     showImageTitle: true,
     showThumbnails: true,
     closeOnEsc: true,
+    closeOnBlur: true,
     reactToKeyboard: true,
     reactToMouseWheel: true,
     reactToRightClick: false,
@@ -293,6 +294,30 @@ export class NgxImageGalleryComponent implements OnInit, OnChanges {
             this.fitThumbnails();
             setTimeout(() => this.scrollThumbnails(), 300);
         }
+    }
+
+    // click event used for implementing closeOnBlur
+    @HostListener('click', ['$event'])
+    onClick(event: Event) {
+        if (!this.conf.closeOnBlur || (event.target as HTMLElement).tagName === 'IMG') {
+            return;
+        }
+
+        const ignoreClasses = [
+            'control',
+            'feedback',
+            'thumbnail',
+            'thumbnails-scroller',
+            'info-container'
+        ];
+
+        for (const ignoreClass of ignoreClasses) {
+            if ((event.target as HTMLElement).classList.contains(ignoreClass)) {
+                return;
+            }
+        }
+
+        this.close();
     }
 
     /***************************************************/

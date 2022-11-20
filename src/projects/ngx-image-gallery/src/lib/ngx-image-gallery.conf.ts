@@ -9,6 +9,7 @@ export interface GALLERY_CONF {
 	showImageTitle?: boolean;
 	showThumbnails?: boolean;
 	closeOnEsc?: boolean;
+	closeOnBlur?: boolean;
 	reactToKeyboard?: boolean;
 	reactToMouseWheel?: boolean;
 	reactToRightClick?: boolean;

@@ -99,6 +99,7 @@ export class AppComponent implements OnInit {
     showImageTitle: true,
     showThumbnails: true,
     closeOnEsc: true,
+    closeOnBlur: true,
     reactToKeyboard: true,
     reactToMouseWheel: true,
     reactToRightClick: false,
