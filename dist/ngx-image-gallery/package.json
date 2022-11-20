@@ -1,6 +1,6 @@
 {
   "name": "@megakill/ngx-image-gallery",
-  "version": "2.0.7",
+  "version": "2.0.8",
   "peerDependencies": {
     "@angular/common": "^9.0.7",
     "@angular/core": "^9.0.7",

@@ -1,6 +1,5 @@
-# Need maintainers
-Due to my hectic schedule, it is getting hard to maintain this repository. If anybody is interested to work on this project, please give a pull request to fix some critical issues and enhancements.
-
+# About this fork
+Updated to support closeOnBlur.
 ---
 
 # ngx-image-gallery
@@ -186,6 +185,7 @@ export interface GALLERY_CONF {
   showImageTitle?: boolean; // show image title text (default true)
   showThumbnails?: boolean; // show thumbnails (default true)
   closeOnEsc?: boolean; // close gallery on `Esc` button press (default true)
+  closeOnBlur?: boolean;
   reactToKeyboard?: boolean; // change image on keyboard arrow press (default true)
   reactToMouseWheel?: boolean; // change image on mouse wheel scroll (default true)
   reactToRightClick?: boolean; // disable right click on gallery (default false)
