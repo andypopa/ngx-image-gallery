@@ -1,6 +1,6 @@
 # About this fork
 Updated to support closeOnBlur.
----
+
 
 # ngx-image-gallery
 Probably the best Angular 4+ modal and inline image gallery. Angular upgrade for ng-image-gallery.
