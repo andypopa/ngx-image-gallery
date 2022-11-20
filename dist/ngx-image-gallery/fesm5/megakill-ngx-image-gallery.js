@@ -1,7 +1,7 @@
 import { __values, __decorate } from 'tslib';
 import { EventEmitter, ElementRef, Renderer2, ChangeDetectorRef, HostBinding, Input, Output, ViewChild, HostListener, Component, Directive, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { debounce, assign } from 'lodash';
+import { debounce, assign } from 'lodash-es';
 import { DomSanitizer } from '@angular/platform-browser';
 
 // key codes to react

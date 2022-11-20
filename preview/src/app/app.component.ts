@@ -110,6 +110,8 @@ export class AppComponent implements OnInit {
     imagePointer: true
   };
 
+  range = range;
+
   constructor(){}
 
   ngOnInit() {}

@@ -1,8 +1,8 @@
 (function (global, factory) {
-    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('@angular/common'), require('lodash'), require('@angular/platform-browser')) :
-    typeof define === 'function' && define.amd ? define('@megakill/ngx-image-gallery', ['exports', '@angular/core', '@angular/common', 'lodash', '@angular/platform-browser'], factory) :
-    (global = global || self, factory((global.megakill = global.megakill || {}, global.megakill['ngx-image-gallery'] = {}), global.ng.core, global.ng.common, global.lodash, global.ng.platformBrowser));
-}(this, (function (exports, core, common, lodash, platformBrowser) { 'use strict';
+    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('@angular/common'), require('lodash-es'), require('@angular/platform-browser')) :
+    typeof define === 'function' && define.amd ? define('@megakill/ngx-image-gallery', ['exports', '@angular/core', '@angular/common', 'lodash-es', '@angular/platform-browser'], factory) :
+    (global = global || self, factory((global.megakill = global.megakill || {}, global.megakill['ngx-image-gallery'] = {}), global.ng.core, global.ng.common, global.lodashEs, global.ng.platformBrowser));
+}(this, (function (exports, core, common, lodashEs, platformBrowser) { 'use strict';
 
     /*! *****************************************************************************
     Copyright (c) Microsoft Corporation.
@@ -279,7 +279,7 @@
             this.thumbnailMargin = '0px 8px';
             this.thumbnailsScrollerLeftMargin = '0px';
             // adjust thumbnail margin to perfectly fit viewport
-            this.fitThumbnails = lodash.debounce(function () {
+            this.fitThumbnails = lodashEs.debounce(function () {
                 // if thumbnails not visible, return false
                 if (_this.conf.showThumbnails == false)
                     return false;
@@ -287,9 +287,9 @@
                 _this.thumbnailMargin = '0 ' + (thumbnailParams.newThumbnailMargin / 2) + 'px';
             }, 300);
             // debounced prev
-            this.debouncedPrev = lodash.debounce(function () { return _this.prev(); }, 100, { 'leading': true, 'trailing': false });
+            this.debouncedPrev = lodashEs.debounce(function () { return _this.prev(); }, 100, { 'leading': true, 'trailing': false });
             // debounced next
-            this.debouncedNext = lodash.debounce(function () { return _this.next(); }, 100, { 'leading': true, 'trailing': false });
+            this.debouncedNext = lodashEs.debounce(function () { return _this.next(); }, 100, { 'leading': true, 'trailing': false });
         }
         Object.defineProperty(NgxImageGalleryComponent.prototype, "activeImage", {
             // active image
@@ -352,7 +352,7 @@
         });
         // set gallery configuration
         NgxImageGalleryComponent.prototype.setGalleryConf = function (conf) {
-            this.conf = lodash.assign(DEFAULT_CONF, conf);
+            this.conf = lodashEs.assign(DEFAULT_CONF, conf);
         };
         // load image and return promise
         NgxImageGalleryComponent.prototype.loadImage = function (index) {
