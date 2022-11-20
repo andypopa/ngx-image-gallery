@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgxImageGalleryComponent, GALLERY_IMAGE, GALLERY_CONF } from 'ngx-image-gallery';
 import { NgForm } from "@angular/forms";
-import _ from 'lodash';
+import { range } from 'lodash-es';
 
 @Component({
   selector: 'app-root',
@@ -109,8 +109,6 @@ export class AppComponent implements OnInit {
     showArrows: true,
     imagePointer: true
   };
-
-  range = _.range;
 
   constructor(){}
 

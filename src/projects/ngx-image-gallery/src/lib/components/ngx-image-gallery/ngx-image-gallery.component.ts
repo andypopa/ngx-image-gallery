@@ -14,7 +14,7 @@ import {
     ChangeDetectorRef
 } from '@angular/core';
 
-import {assign, debounce} from 'lodash';
+import {assign, debounce} from 'lodash-es';
 
 import {GALLERY_CONF, GALLERY_IMAGE} from '../../ngx-image-gallery.conf';
 import { DomSanitizer } from '@angular/platform-browser';

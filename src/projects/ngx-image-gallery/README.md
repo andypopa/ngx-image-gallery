@@ -1,5 +1,5 @@
 # About this fork
-Updated to support closeOnBlur.
+Updated to support closeOnBlur and use lodash-es.
 
 
 # ngx-image-gallery

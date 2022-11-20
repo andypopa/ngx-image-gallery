@@ -1,8 +1,5 @@
-# This project is no longer maintained. Please consider other image galleries.
----
-
-# ngx-image-gallery
-Probably the best Angular 4+ modal and inline image gallery. Angular upgrade for ng-image-gallery.
+# About this fork
+Updated to support closeOnBlur and use lodash-es.
 
 ![preview](https://i.imgur.com/1gGxBLd.jpg)
 
