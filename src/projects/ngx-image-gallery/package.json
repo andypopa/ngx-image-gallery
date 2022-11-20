@@ -1,6 +1,6 @@
 {
-  "name": "@web-aid-kit/ngx-image-gallery",
-  "version": "v1.0.0-beta",
+  "name": "@megakill/ngx-image-gallery",
+  "version": "2.0.6",
   "peerDependencies": {
     "@angular/common": "^9.0.7",
     "@angular/core": "^9.0.7",
